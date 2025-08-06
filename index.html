@@ -75,14 +75,14 @@
                     </button>
                     <button class="btn-secondary">
                         <i class="fas fa-play"></i>
-                        Xem video
+                        Xem video   
                     </button>
                 </div>
             </div>
             <div class="hero-image">
                 <div class="phone-showcase">
                     <div class="phone-card">
-                        <img src="14promax.png" alt="iPhone 14 Pro Max">
+                        <img src="https://cdn.tgdd.vn/Products/Images/42/251192/iphone-14-pro-max-den-thumb-600x600.jpg" alt="iPhone 14 Pro Max" data-product-name="iPhone 14 Pro Max">
                         <div class="phone-glow"></div>
                     </div>
                 </div>
@@ -151,6 +151,7 @@
                     <button class="filter-btn" data-filter="iphone">iPhone</button>
                     <button class="filter-btn" data-filter="samsung">Samsung</button>
                     <button class="filter-btn" data-filter="xiaomi">Xiaomi</button>
+                    <button class="filter-btn" data-filter="accessories">Phụ kiện</button>
                 </div>
             </div>
             
@@ -158,7 +159,7 @@
                 <div class="product-card" data-category="iphone">
                     <div class="product-badge">Mới</div>
                     <div class="product-image">
-                        <img src="14promax.png" alt="iPhone 14 Pro Max">
+                        <img src="https://cdn.tgdd.vn/Products/Images/42/251192/iphone-14-pro-max-den-thumb-600x600.jpg" alt="iPhone 14 Pro Max" data-product-name="iPhone 14 Pro Max">
                         <div class="product-overlay">
                             <button class="btn-icon" title="Xem nhanh">
                                 <i class="fas fa-eye"></i>
@@ -184,8 +185,8 @@
                             <span>(128 đánh giá)</span>
                         </div>
                         <div class="product-price">
-                            <span class="current-price">29.990.000₫</span>
-                            <span class="old-price">32.990.000₫</span>
+                            <span class="current-price">25.990.000₫</span>
+                            <span class="old-price">29.990.000₫</span>
                         </div>
                         <div class="product-specs">
                             <span>A16 Bionic</span>
@@ -198,7 +199,7 @@
                 <div class="product-card" data-category="samsung">
                     <div class="product-badge sale">Giảm 20%</div>
                     <div class="product-image">
-                        <img src="ss S23.png" alt="Samsung Galaxy S23">
+                        <img src="samsung-s23.png" alt="Samsung Galaxy S23" data-product-name="Samsung Galaxy S23">
                         <div class="product-overlay">
                             <button class="btn-icon" title="Xem nhanh">
                                 <i class="fas fa-eye"></i>
@@ -238,7 +239,7 @@
                 <div class="product-card" data-category="xiaomi">
                     <div class="product-badge">Hot</div>
                     <div class="product-image">
-                        <img src="xaomi.png" alt="Xiaomi 13 Pro">
+                        <img src="xiaomi.png" alt="Xiaomi 13 Pro" data-product-name="Xiaomi 13 Pro">
                         <div class="product-overlay">
                             <button class="btn-icon" title="Xem nhanh">
                                 <i class="fas fa-eye"></i>
@@ -277,7 +278,7 @@
 
                 <div class="product-card" data-category="samsung">
                     <div class="product-image">
-                        <img src="google p.png" alt="Google Pixel">
+                        <img src="google-pixel.png" alt="Google Pixel" data-product-name="Google Pixel 8 Pro">
                         <div class="product-overlay">
                             <button class="btn-icon" title="Xem nhanh">
                                 <i class="fas fa-eye"></i>
@@ -309,6 +310,46 @@
                             <span>Tensor G3</span>
                             <span>128GB</span>
                             <span>AI Camera</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="accessories">
+                    <div class="product-badge">Bán chạy</div>
+                    <div class="product-image">
+                        <img src="https://lesang.vn/images/san-pham/op-lung-iphone-15-spigen-ultra-hybrid-trong-suot1695018965.jpg" alt="Ốp lưng iPhone Premium" data-product-name="Ốp lưng iPhone Premium">
+                        <div class="product-overlay">
+                            <button class="btn-icon" title="Xem nhanh">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="btn-icon" title="Thêm vào giỏ">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                            <button class="btn-icon" title="Yêu thích">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Ốp lưng iPhone Premium</h3>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span>(245 đánh giá)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="current-price">299.000₫</span>
+                            <span class="old-price">399.000₫</span>
+                        </div>
+                        <div class="product-specs">
+                            <span>Chống sốc</span>
+                            <span>Silicone</span>
+                            <span>Trong suốt</span>
                         </div>
                     </div>
                 </div>
@@ -441,53 +482,179 @@
         // Cart functionality with localStorage integration
         const cartCountElement = document.querySelector('.cart-count');
         
-        // Sample products data
+        // Sample products data (hình ảnh sẽ tự động đồng bộ từ HTML)
         const products = {
             'iPhone 14 Pro Max': {
                 id: 1,
                 name: 'iPhone 14 Pro Max',
-                image: '14promax.png',
-                price: 29990000,
-                originalPrice: 32990000,
+                price: 10000,
+                originalPrice: 29990000,
                 color: 'Deep Purple',
                 storage: '128GB',
                 warranty: '12 tháng',
-                category: 'iphone'
+                category: 'iphone',
+                image: 'https://cdn.tgdd.vn/Products/Images/42/251192/iphone-14-pro-max-den-thumb-600x600.jpg'
             },
             'Samsung Galaxy S23': {
                 id: 2,
                 name: 'Samsung Galaxy S23',
-                image: 'ss S23.png',
                 price: 19990000,
                 originalPrice: 24990000,
                 color: 'Phantom Black',
                 storage: '256GB',
                 warranty: '12 tháng',
-                category: 'samsung'
+                category: 'samsung',
+                image: 'samsung-s23.png'
             },
             'Xiaomi 13 Pro': {
                 id: 3,
                 name: 'Xiaomi 13 Pro',
-                image: 'xaomi.png',
                 price: 16990000,
                 originalPrice: 19990000,
                 color: 'Ceramic White',
                 storage: '256GB',
                 warranty: '18 tháng',
-                category: 'xiaomi'
+                category: 'xiaomi',
+                image: 'xiaomi.png'
             },
             'Google Pixel 8 Pro': {
                 id: 4,
                 name: 'Google Pixel 8 Pro',
-                image: 'google p.png',
                 price: 21990000,
                 originalPrice: 24990000,
                 color: 'Obsidian',
                 storage: '128GB',
                 warranty: '12 tháng',
-                category: 'google'
+                category: 'google',
+                image: 'google-pixel.png'
+            },
+            'Ốp lưng iPhone Premium': {
+                id: 5,
+                name: 'Ốp lưng iPhone Premium',
+                price: 299000,
+                originalPrice: 399000,
+                color: 'Trong suốt',
+                material: 'Silicone',
+                warranty: '6 tháng',
+                category: 'accessories',
+                image: 'https://lesang.vn/images/san-pham/op-lung-iphone-15-spigen-ultra-hybrid-trong-suot1695018965.jpg'
             }
         };
+
+        // Function to get product image from DOM
+        function getProductImage(productName) {
+            const productCards = document.querySelectorAll('.product-card');
+            for (let card of productCards) {
+                const nameElement = card.querySelector('.product-name');
+                if (nameElement && nameElement.textContent.trim() === productName) {
+                    const imgElement = card.querySelector('.product-image img');
+                    return imgElement ? imgElement.src : null;
+                }
+            }
+            return null;
+        }
+
+        // Make function available globally
+        window.getProductImage = getProductImage;
+
+        // Function to change product price
+        function changeProductPrice(productName, newPrice, newOriginalPrice = null) {
+            const product = products[productName];
+            if (!product) {
+                console.error('Product not found:', productName);
+                return false;
+            }
+
+            const oldPrice = product.price;
+            const oldOriginalPrice = product.originalPrice;
+
+            // Update prices
+            product.price = newPrice;
+            if (newOriginalPrice !== null) {
+                product.originalPrice = newOriginalPrice;
+            }
+
+            // Update price display in DOM
+            const productCards = document.querySelectorAll('.product-card');
+            for (let card of productCards) {
+                const nameElement = card.querySelector('.product-name');
+                if (nameElement && nameElement.textContent.trim() === productName) {
+                    const currentPriceElement = card.querySelector('.current-price');
+                    const oldPriceElement = card.querySelector('.old-price');
+                    
+                    if (currentPriceElement) {
+                        currentPriceElement.textContent = new Intl.NumberFormat('vi-VN').format(newPrice) + '₫';
+                    }
+                    
+                    if (oldPriceElement && newOriginalPrice) {
+                        oldPriceElement.textContent = new Intl.NumberFormat('vi-VN').format(newOriginalPrice) + '₫';
+                    }
+                    
+                    // Add animation effect
+                    currentPriceElement.style.transform = 'scale(1.1)';
+                    currentPriceElement.style.color = '#e74c3c';
+                    setTimeout(() => {
+                        currentPriceElement.style.transform = 'scale(1)';
+                        currentPriceElement.style.color = '';
+                    }, 500);
+                    
+                    break;
+                }
+            }
+
+            console.log(`✅ Đã thay đổi giá ${productName}:`, {
+                oldPrice: new Intl.NumberFormat('vi-VN').format(oldPrice) + '₫',
+                newPrice: new Intl.NumberFormat('vi-VN').format(newPrice) + '₫',
+                oldOriginalPrice: oldOriginalPrice ? new Intl.NumberFormat('vi-VN').format(oldOriginalPrice) + '₫' : 'Không có',
+                newOriginalPrice: newOriginalPrice ? new Intl.NumberFormat('vi-VN').format(newOriginalPrice) + '₫' : 'Không thay đổi'
+            });
+
+            return true;
+        }
+
+        // Make function available globally
+        window.changeProductPrice = changeProductPrice;
+
+        // Function to sync all prices from products object to DOM
+        function syncPricesToDOM() {
+            Object.keys(products).forEach(productName => {
+                const product = products[productName];
+                const productCards = document.querySelectorAll('.product-card');
+                
+                for (let card of productCards) {
+                    const nameElement = card.querySelector('.product-name');
+                    if (nameElement && nameElement.textContent.trim() === productName) {
+                        const currentPriceElement = card.querySelector('.current-price');
+                        const oldPriceElement = card.querySelector('.old-price');
+                        
+                        if (currentPriceElement) {
+                            currentPriceElement.textContent = new Intl.NumberFormat('vi-VN').format(product.price) + '₫';
+                        }
+                        
+                        if (oldPriceElement && product.originalPrice) {
+                            oldPriceElement.textContent = new Intl.NumberFormat('vi-VN').format(product.originalPrice) + '₫';
+                        }
+                        
+                        break;
+                    }
+                }
+            });
+            console.log('🔄 Đã đồng bộ tất cả giá từ products object vào DOM');
+        }
+
+        // Make function available globally
+        window.syncPricesToDOM = syncPricesToDOM;
+
+        // Tự động đồng bộ hình ảnh từ HTML sau khi tải xong
+        setTimeout(() => {
+            Object.keys(products).forEach(productName => {
+                const imageUrl = getProductImage(productName);
+                if (imageUrl) {
+                    products[productName].image = imageUrl;
+                }
+            });
+            console.log('🔄 Đã đồng bộ hình ảnh cho products data');
+        }, 500);
 
         // Update cart count display (now handled by TechStoreCart)
         function updateCartCount() {
@@ -501,6 +668,18 @@
                 console.error('Product not found:', productName);
                 return;
             }
+
+            // Ensure we have the latest image URL
+            const imageUrl = getProductImage(productName);
+            if (imageUrl) {
+                product.image = imageUrl;
+            }
+
+            console.log('Adding product to cart:', {
+                name: product.name,
+                image: product.image,
+                price: product.price
+            });
 
             const success = TechStoreCart.addProduct(product);
             if (success) {
@@ -582,9 +761,21 @@
         });
 
         // Initialize cart count on page load (handled by shared.js automatically)
-        // But we can still call it explicitly if needed
         document.addEventListener('DOMContentLoaded', function() {
             TechStoreCart.updateCartCount();
+            
+            // Sync prices from products object to DOM
+            syncPricesToDOM();
+            
+            console.log('✅ TechStore đã khởi tạo thành công!');
+            console.log('💡 Các function có sẵn:');
+            console.log('   📸 getProductImage("Tên sản phẩm") - Lấy URL hình ảnh hiện tại');
+            console.log('   💰 changeProductPrice("Tên sản phẩm", giá_mới, giá_gốc_mới) - Thay đổi giá');
+            console.log('   🔄 syncPricesToDOM() - Đồng bộ tất cả giá từ object vào hiển thị');
+            console.log('');
+            console.log('📝 Ví dụ sử dụng:');
+            console.log('   changeProductPrice("iPhone 14 Pro Max", 23990000, 29990000)');
+            console.log('   changeProductPrice("Samsung Galaxy S23", 17990000)');
         });
     </script>
 </body>

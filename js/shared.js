@@ -60,11 +60,21 @@ window.TechStoreCart = {
         if (existingItem) {
             existingItem.quantity += 1;
         } else {
-            cart.push({
-                ...product,
+            // Explicitly include all product properties
+            const newItem = {
+                id: product.id,
+                name: product.name,
+                image: product.image || 'https://via.placeholder.com/80x80?text=No+Image',
+                price: product.price,
+                originalPrice: product.originalPrice || product.price,
+                color: product.color || 'Đen',
+                storage: product.storage || '128GB',
+                warranty: product.warranty || '12 tháng',
+                category: product.category || '',
                 quantity: 1,
                 dateAdded: new Date().toISOString()
-            });
+            };
+            cart.push(newItem);
         }
 
         this.saveCart(cart);
