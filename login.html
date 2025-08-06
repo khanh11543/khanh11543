@@ -167,7 +167,7 @@
             color: #5a6fd8;
         }
 
-        .login-btn {
+        .submit-login-btn {
             width: 100%;
             padding: 15px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -182,12 +182,12 @@
             overflow: hidden;
         }
 
-        .login-btn:hover {
+        .submit-login-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
         }
 
-        .login-btn:active {
+        .submit-login-btn:active {
             transform: translateY(0);
         }
 
@@ -330,11 +330,11 @@
         }
 
         /* Loading state */
-        .login-btn.loading {
+        .submit-login-btn.loading {
             color: transparent;
         }
 
-        .login-btn.loading::after {
+        .submit-login-btn.loading::after {
             content: '';
             position: absolute;
             top: 50%;
@@ -399,7 +399,7 @@
                         <a href="#" class="forgot-password" onclick="forgotPassword()">Quên mật khẩu?</a>
                     </div>
 
-                    <button type="submit" class="login-btn" id="loginButton">
+                    <button type="submit" class="submit-login-btn" id="loginButton">
                         Đăng nhập
                     </button>
                 </form>
@@ -427,7 +427,19 @@
     </div>
 
     <script src="js/validation.js"></script>
+    <script src="js/auth-simple.js"></script>
     <script>
+        // Check if user is already logged in
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded, checking auth...');
+            setTimeout(() => {
+                if (window.TechStoreAuth && window.TechStoreAuth.isLoggedIn()) {
+                    console.log('User already logged in, redirecting...');
+                    window.location.href = 'index.html';
+                }
+            }, 100);
+        });
+
         // Toggle password visibility
         function togglePassword() {
             const passwordInput = document.getElementById('loginPassword');
@@ -455,46 +467,58 @@
             const password = document.getElementById('loginPassword').value;
             const rememberMe = document.getElementById('rememberMe').checked;
             
-            // Validate form
-            if (!validateLoginForm()) {
-                return false;
+            // Basic validation
+            let hasError = false;
+            
+            if (!email) {
+                showError('loginEmail', 'Vui lòng nhập email');
+                hasError = true;
             }
             
-            // Additional custom validation
-            if (!isValidEmail(email)) {
-                showError('loginEmail', 'Vui lòng nhập email hợp lệ');
-                return false;
+            if (!password) {
+                showError('loginPassword', 'Vui lòng nhập mật khẩu');
+                hasError = true;
             }
             
-            if (password.length < 6) {
-                showError('loginPassword', 'Mật khẩu phải có ít nhất 6 ký tự');
+            if (hasError) {
                 return false;
             }
             
             // Show loading state
-            const loginButton = document.getElementById('loginButton');
-            loginButton.classList.add('loading');
-            loginButton.disabled = true;
+            const submitBtn = document.getElementById('loginButton');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Đang đăng nhập...';
+            submitBtn.disabled = true;
             
-            // Simulate login process
+            // Attempt login using auth system
             setTimeout(() => {
-                // Check credentials (demo data)
-                if (email === 'admin@techstore.com' && password === '123456') {
-                    alert('Đăng nhập thành công!');
-                    
-                    // Save login state if remember me is checked
+                console.log('Trying to login with:', email, password);
+                
+                if (!window.TechStoreAuth) {
+                    console.error('TechStoreAuth not loaded!');
+                    showError('loginPassword', 'Lỗi hệ thống, vui lòng tải lại trang');
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    return;
+                }
+                
+                const result = window.TechStoreAuth.login(email, password);
+                console.log('Login result:', result);
+                
+                if (result.success) {
                     if (rememberMe) {
                         localStorage.setItem('rememberedEmail', email);
+                    } else {
+                        localStorage.removeItem('rememberedEmail');
                     }
                     
-                    // Redirect to dashboard or home page
                     window.location.href = 'index.html';
                 } else {
-                    showError('loginPassword', 'Email hoặc mật khẩu không chính xác');
-                    loginButton.classList.remove('loading');
-                    loginButton.disabled = false;
+                    showError('loginPassword', result.message);
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
                 }
-            }, 1500);
+            }, 1000);
             
             return false;
         }

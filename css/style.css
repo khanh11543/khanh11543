@@ -187,6 +187,28 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
 }
 
+.logout-btn {
+    padding: 0.75rem;
+    background: #ef4444;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+}
+
+.logout-btn:hover {
+    background: #dc2626;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(239, 68, 68, 0.3);
+}
+
 .hamburger {
     display: none;
     flex-direction: column;

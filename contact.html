@@ -831,10 +831,14 @@
     </main>
 
     <script src="js/shared.js"></script>
+    <script src="js/auth-simple.js"></script>
     <script>
-        // Initialize cart count
+        // Initialize cart count and auth
         document.addEventListener('DOMContentLoaded', function() {
             TechStoreCart.updateCartCount();
+            if (window.TechStoreAuth) {
+                TechStoreAuth.updateNavigation();
+            }
         });
 
         // Contact form handling
