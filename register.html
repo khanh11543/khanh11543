@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Register - PhoneStore</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #0d6efd;
+      color: white;
+      padding: 20px 0;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    h2 {
+      text-align: center;
+      margin-top: 40px;
+      color: #0d6efd;
+    }
+
+    form {
+      background-color: white;
+      padding: 30px;
+      margin: 40px auto;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 500px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    button {
+      background-color: #0d6efd;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: #094ec0;
+    }
+
+    .error-message {
+      color: red;
+      margin-bottom: 15px;
+      display: none;
+    }
+
+    footer {
+      background-color: #0d6efd;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 40px;
+    }
+  </style>
+  <script>
+    function validateRegisterForm() {
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value.trim();
+      const confirmPassword = document.getElementById('confirmPassword').value.trim();
+      const error = document.getElementById('error-message');
+
+      if (name === "" || email === "" || password === "" || confirmPassword === "") {
+        error.textContent = "Please fill in all fields.";
+        error.style.display = "block";
+        return false;
+      }
+
+      if (!email.includes('@') || !email.includes('.')) {
+        error.textContent = "Invalid email format.";
+        error.style.display = "block";
+        return false;
+      }
+
+      if (password.length < 6) {
+        error.textContent = "Password must be at least 6 characters.";
+        error.style.display = "block";
+        return false;
+      }
+
+      if (password !== confirmPassword) {
+        error.textContent = "Passwords do not match.";
+        error.style.display = "block";
+        return false;
+      }
+
+      alert("Registration successful! (Simulated)");
+      return true;
+    }
+  </script>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <nav>
+        <h2>📱 PhoneStore</h2>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="login.html">Login</a></li>
+          <li><a href="register.html">Register</a></li>
+          <li><a href="profile.html">Profile</a></li>
+          <li><a href="cart.html">My Cart</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <h2>Create an Account</h2>
+    <form onsubmit="return validateRegisterForm()">
+      <div class="error-message" id="error-message"></div>
+
+      <label for="name">Full Name</label>
+      <input type="text" id="name" placeholder="Your full name">
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" placeholder="example@email.com">
+
+      <label for="password">Password</label>
+      <input type="password" id="password" placeholder="At least 6 characters">
+
+      <label for="confirmPassword">Confirm Password</label>
+      <input type="password" id="confirmPassword" placeholder="Re-enter your password">
+
+      <button type="submit">Register</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 PhoneStore. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

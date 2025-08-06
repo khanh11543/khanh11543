@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Profile | Phone Store</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .profile-container {
+      max-width: 500px;
+      margin: 50px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .profile-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .profile-item {
+      margin-bottom: 15px;
+    }
+
+    .profile-item label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .profile-item span {
+      display: block;
+      background-color: #f3f3f3;
+      padding: 8px 12px;
+      border-radius: 4px;
+    }
+
+    .btn-edit {
+      display: block;
+      text-align: center;
+      margin-top: 25px;
+    }
+
+    .btn-edit a {
+      background-color: #007bff;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 4px;
+      text-decoration: none;
+    }
+
+    .btn-edit a:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Phone Store</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="contact.html">Contact</a>
+      <a href="login.html">Login</a>
+      <a href="register.html">Register</a>
+      <a href="profile.html" class="active">Profile</a>
+      <a href="cart.html">My Cart</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="profile-container">
+      <h2>User Profile</h2>
+
+      <div class="profile-item">
+        <label>Full Name:</label>
+        <span>Nguyen Ho Duy Khanh</span>
+      </div>
+
+      <div class="profile-item">
+        <label>Email:</label>
+        <span>khanh@example.com</span>
+      </div>
+
+      <div class="profile-item">
+        <label>Phone Number:</label>
+        <span>0123456789</span>
+      </div>
+
+      <div class="profile-item">
+        <label>Address:</label>
+        <span>123 Le Loi, Ho Chi Minh City</span>
+      </div>
+
+      <div class="btn-edit">
+        <a href="#">Edit Profile</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Phone Store. All rights reserved.</p>
+  </footer>
+</body>
+</html>

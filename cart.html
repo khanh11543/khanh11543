@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Cart | Phone Sales</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+
+    header, footer {
+      background-color: #222;
+      color: white;
+      padding: 1em;
+      text-align: center;
+    }
+
+    .cart-container {
+      max-width: 800px;
+      margin: 2rem auto;
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ddd;
+      padding: 1rem 0;
+    }
+
+    .cart-item:last-child {
+      border-bottom: none;
+    }
+
+    .cart-item img {
+      width: 80px;
+      height: auto;
+      margin-right: 1rem;
+    }
+
+    .item-details {
+      flex: 1;
+    }
+
+    .item-actions {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .total {
+      text-align: right;
+      margin-top: 1.5rem;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    button {
+      padding: 0.5rem 1rem;
+      background-color: #333;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>My Cart</h1>
+    <nav>
+      <a href="index.html" style="color:white; margin-right: 15px;">Home</a>
+      <a href="profile.html" style="color:white;">Profile</a>
+    </nav>
+  </header>
+
+  <div class="cart-container" id="cart-items">
+    <!-- Sample cart item -->
+    <div class="cart-item">
+      <img src="14promax.png" alt="Phone Image">
+      <div class="item-details">
+        <h3>iPhone 14 Pro Max</h3>
+        <p>Price: $1199</p>
+        <p>Quantity: <input type="number" value="1" min="1" class="quantity" /></p>
+      </div>
+      <div class="item-actions">
+        <button onclick="removeItem(this)">Remove</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="total" id="total-price">Total: $1199</div>
+
+  <footer>
+    <p>&copy; 2025 Phone Sales Management System</p>
+  </footer>
+
+  <script>
+    function removeItem(button) {
+      const item = button.closest('.cart-item');
+      item.remove();
+      updateTotal();
+    }
+
+    function updateTotal() {
+      let total = 0;
+      document.querySelectorAll('.cart-item').forEach(item => {
+        const price = parseFloat(item.querySelector('p').textContent.replace(/[^\d.]/g, ""));
+        const quantity = parseInt(item.querySelector('.quantity').value);
+        total += price * quantity;
+      });
+      document.getElementById('total-price').textContent = 'Total: $' + total.toFixed(2);
+    }
+
+    document.querySelectorAll('.quantity').forEach(input => {
+      input.addEventListener('change', updateTotal);
+    });
+
+    updateTotal();
+  </script>
+</body>
+</html>
