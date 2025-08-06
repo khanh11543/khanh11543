@@ -454,12 +454,12 @@
                 warranty: '12 tháng',
                 category: 'iphone'
             },
-            'Samsung Galaxy S23 Ultra': {
+            'Samsung Galaxy S23': {
                 id: 2,
-                name: 'Samsung Galaxy S23 Ultra',
+                name: 'Samsung Galaxy S23',
                 image: 'ss S23.png',
-                price: 26990000,
-                originalPrice: 28990000,
+                price: 19990000,
+                originalPrice: 24990000,
                 color: 'Phantom Black',
                 storage: '256GB',
                 warranty: '12 tháng',
@@ -469,8 +469,8 @@
                 id: 3,
                 name: 'Xiaomi 13 Pro',
                 image: 'xaomi.png',
-                price: 18990000,
-                originalPrice: 21990000,
+                price: 16990000,
+                originalPrice: 19990000,
                 color: 'Ceramic White',
                 storage: '256GB',
                 warranty: '18 tháng',
@@ -489,32 +489,9 @@
             }
         };
 
-        // Load cart from localStorage
-        function loadCart() {
-            try {
-                const saved = localStorage.getItem('techstore_cart');
-                return saved ? JSON.parse(saved) : [];
-            } catch (error) {
-                console.error('Error loading cart:', error);
-                return [];
-            }
-        }
-
-        // Save cart to localStorage
-        function saveCart(cart) {
-            try {
-                localStorage.setItem('techstore_cart', JSON.stringify(cart));
-                updateCartCount();
-            } catch (error) {
-                console.error('Error saving cart:', error);
-            }
-        }
-
-        // Update cart count display
+        // Update cart count display (now handled by TechStoreCart)
         function updateCartCount() {
-            const cart = loadCart();
-            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-            cartCountElement.textContent = totalItems;
+            TechStoreCart.updateCartCount();
         }
 
         // Add product to cart using TechStoreCart
@@ -604,9 +581,10 @@
             });
         });
 
-        // Initialize cart count on page load
+        // Initialize cart count on page load (handled by shared.js automatically)
+        // But we can still call it explicitly if needed
         document.addEventListener('DOMContentLoaded', function() {
-            updateCartCount();
+            TechStoreCart.updateCartCount();
         });
     </script>
 </body>
